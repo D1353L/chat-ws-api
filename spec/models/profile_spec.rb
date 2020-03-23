@@ -6,9 +6,12 @@ RSpec.describe Profile, type: :model do
   end
 
   describe "Validations" do
-    it "is valid with valid attributes"
+    it "is valid with valid attributes" do
+      subject.nickname = "nick"
+      subject.user = User.new
+      expect(subject).to be_valid
+    end
     it { should validate_presence_of(:nickname) }
     it { should validate_uniqueness_of(:nickname) }
-    it { should validate_presence_of(:user) }
   end
 end

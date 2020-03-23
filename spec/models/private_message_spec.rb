@@ -7,9 +7,14 @@ RSpec.describe PrivateMessage, type: :model do
   end
 
   describe "Validations" do
-    it "is valid with valid attributes"
+    subject { described_class.new }
+
+    it "is valid with valid attributes" do
+      subject.content = "aa"
+      subject.user = User.new
+      subject.message_thread = MessageThread.new
+      expect(subject).to be_valid
+    end
     it { should validate_presence_of(:content) }
-    it { should validate_presence_of(:message_thread) }
-    it { should validate_presence_of(:user) }
   end
 end
