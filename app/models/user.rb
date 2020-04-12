@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_one :profile
 
-  validates_presence_of :email, :profile
-  validates_uniqueness_of :email
-
+  devise :database_authenticatable, :registerable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist
 end
