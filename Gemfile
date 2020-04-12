@@ -14,6 +14,7 @@ gem 'faye-redis'
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers'
 end
 
 group :development do
